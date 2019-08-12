@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">E-Commerce Inc.</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#" @click.prevent="activeView='app-product-list'">Product List</a></li>
+            <li><a href="#" @click.prevent="activeView='app-sitemap'">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <component :is="activeView"></component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ListProducts from './components/ListProducts';
+import Sitemap from './components/Sitemap';
 
 export default {
-  name: 'app',
+  data(){
+    return {
+      activeView: 'app-product-list',
+    };
+  },
+
   components: {
-    HelloWorld
+    appProductList: ListProducts,
+    appSitemap: Sitemap,
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
