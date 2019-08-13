@@ -5,17 +5,20 @@
         <div class="navbar-header">
           <a href="#" class="navbar-brand">E-Commerce Inc.</a>
         </div>
-
+        
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#" @click.prevent="activeView='app-product-list'">Product List</a></li>
             <li><a href="#" @click.prevent="activeView='app-sitemap'">Sitemap</a></li>
           </ul>
         </div>
+
       </div>
     </nav>
 
-    <component :is="activeView"></component>
+    <keep-alive>
+      <component :is="activeView"></component>
+    </keep-alive>
   </div>
 </template>
 

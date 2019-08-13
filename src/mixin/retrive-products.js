@@ -6,6 +6,7 @@ export default{
     },
 
     created(){
+        //alert('retriving products');
         this.products = this.getProductList();
     },
 
@@ -16,6 +17,10 @@ export default{
                 { name: 'Startup', price: 99.95},
                 { name: 'Enterprise', price: 199.95},
             ];
+        },
+
+        addToCart(product){
+            alert('adding ' + product.name + ' to cart(mixin)');
         }
     }
 }
